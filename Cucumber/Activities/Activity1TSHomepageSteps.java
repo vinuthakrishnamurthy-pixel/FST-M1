@@ -1,0 +1,35 @@
+package stepDefinitions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Activity1TSHomepageSteps extends BaseClass{
+	
+	@Given("user is on the TS homepage")
+	public void TShomepage() {
+		driver.get("https://training-support.net");
+		String Title = driver.getTitle();
+		System.out.println("Page Title is "+ Title);
+		assertEquals("Training Support", Title);
+	}
+
+	@When("the user clicks on the About Us link")
+	public void aboutUsButtonClick() {
+		driver.findElement(By.linkText("About Us")).click();
+	}
+
+	@Then("they are redirected to another page")
+	public void aboutUsPageValidation() {
+		wait.until(ExpectedConditions.titleIs("About Training Support"));
+		String Title = driver.getTitle();
+		System.out.println("Page Title is "+ Title);
+		assertEquals("About Training Support", Title);
+	}
+
+}
