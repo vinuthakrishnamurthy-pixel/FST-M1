@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="fst-testng" thread-count="4" parallel="classes"> <!-- Test Suite -->
+    <groups> <!-- Groups Control -->
+        <run>
+            <include name="HeaderTest" />
+        </run>
+    </groups>
+    <test name="activities"> <!-- Test Classes -->
+        <classes>
+            <class name="activities.Activity5" />
+        </classes>
+    </test>
+</suite>
